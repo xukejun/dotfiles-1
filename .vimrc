@@ -12,13 +12,40 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'Quramy/vim-js-pretty-template'
-
+Plugin 'vim-syntastic/syntastic'
+Plugin 'jason0x43/vim-js-indent'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+let mapleader = ','
+map <Up> <Nop>
+map <Down> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
+
+inoremap jk <esc>
+
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+autocmd FileType typescript :set makeprg=tsc
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 let g:NERDTreeDirArrow=0
 let g:NERDTreeDirArrowExpandable = '►'
@@ -38,6 +65,7 @@ set autoindent
 set nostartofline
 set ruler
 set laststatus=2
+
 set t_Co=256
 let g:Powerline_symbols= 'fancy'
 set showtabline=2
@@ -54,7 +82,7 @@ syntax on
 set colorcolumn=80
 colorscheme desert
 set cursorline  " highlight current line
-set cursorcolumn " highlight current column
+" set cursorcolumn " highlight current column
 " hi CursorLine   cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkred guifg=white
 " hi CursorColumn cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkred guifg=white
 set autowrite
