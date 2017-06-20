@@ -29,7 +29,16 @@ map <Right> <Nop>
 
 inoremap jk <esc>
 
-let g:ctrlp_custom_ignore = {
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+
+" Don't offer to open certain files/directories
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*           " Linux/MacOSX 
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=*.map,*.so,*.jar
+set wildignore+=node_modules/*,bower_components/*,dist/*,target/*
+
+" let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 let g:typescript_compiler_binary = 'tsc'
