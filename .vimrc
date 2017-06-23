@@ -29,7 +29,7 @@ map <Right> <Nop>
 
 inoremap jk <esc>
 
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|map|js|ico|git|svn))$'
 
 " Don't offer to open certain files/directories
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*           " Linux/MacOSX 
