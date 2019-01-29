@@ -1,0 +1,5 @@
+alias proxy="ssh -o 'StrictHostKeyChecking no' -o ServerAliveInterval=60 -fqND 1080 kejxu@phxbastion100.phx.ebay.com"
+alias prod_ssh_via_proxy="ssh    -o 'StrictHostKeyChecking no' -o ProxyCommand='nc -x localhost:1080 %h %p' -o ServerAliveInterval=60"
+alias prod_scp_via_proxy='scp -C -o "StrictHostKeyChecking no" -o ProxyCommand='\''nc -x localhost:1080 %h %p'\'' -o ServerAliveInterval=60'
+alias brewupdate='brew update'
+alias brew='HOMEBREW_NO_AUTO_UPDATE=1 brew'
